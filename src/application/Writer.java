@@ -12,8 +12,8 @@ public class Writer implements Runnable{
     private Thread t; // ссылка на текущий поток
 
     // Конструктор - получает 3 параметра:
-    // - AI - массив, который нужно записать в файл;
-    // - filename - имя файла, в который записывается массив AI;
+    // - ARRAY_TO_WR - массив, который нужно записать в файл;
+    // - filename - имя файла, в который записывается массив ARRAY_TO_WR;
     // - threadName - имя потока.
     public Writer(int[] ARRAY_TO_WR, String filename, String threadName) {
         // Запомнить ссылку на массив
@@ -25,7 +25,7 @@ public class Writer implements Runnable{
         // Запомнить имя потока
         this.threadName = threadName;
 
-        // Создать поток с именем "SaveThread"
+        // Создать поток с именем "WriterThread"
         t = new Thread(this, "WriterThread");
     }
 
@@ -34,7 +34,7 @@ public class Writer implements Runnable{
         t.start(); // вызвать метод run()
     }
 
-    // В методе run() указывается код записи в файл
+    // В методе run() выполняются команды записи в файл
     public void run() {
         // Сообщить о начале выполнения потока
         System.out.println("Запуск потока записи: " + threadName);
