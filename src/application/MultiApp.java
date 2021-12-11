@@ -9,22 +9,30 @@ public class MultiApp {
         //Создание Главного потока
         System.out.println("Запускаем Главный поток...");
         Runnable r = () -> {
-            System.out.printf("%s started... \n", Thread.currentThread().getName());
+            System.out.printf("%s запустился... \n", Thread.currentThread().getName());
             try{
-                Thread.sleep(500);
+                //Thread.sleep(500);
+                System.out.println("Начинаем подготовительные операции в главном потоке...");
+                //
+
+                //
             }
-            catch(InterruptedException e){
-                System.out.println("Thread has been interrupted");
+            catch(Exception e){
+                System.out.println("Возникла ошибка.");
             }
-            System.out.printf("%s finished... \n", Thread.currentThread().getName());
+            System.out.printf("%s завершился... \n", Thread.currentThread().getName());
         };
         Thread myThread = new Thread(r,"MultiApp_Thread");
         myThread.start();
+        while (myThread.getState() == Thread.State.RUNNABLE) {
+            System.out.println("Ждем главный поток.");
+        }
+        System.out.println("Поток находится в состоянии: " + myThread.getState());
         System.out.println("Главный поток завершился...");
         //
         // сгенерируем случайное число в диапазоне от 50 до 100 для создания массивов разной длины
-        int beginning = 50; // Начальное значение диапазона - "от"
-        int end = 100; // Конечное значение диапазона - "до"
+        int beginning = 50; // Начальное значение для диапазона случайных чисел
+        int end = 100; // Конечное значение для диапазона случайных чисел
 
         // определим переменные для SecureRandom
         int max = 100;
@@ -73,5 +81,6 @@ public class MultiApp {
         t1.start();
         t2.start();
         t3.start();
+        System.out.println("Главный процесс завершил свою работу");
     }
 }

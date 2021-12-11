@@ -14,6 +14,9 @@ public class App {
         };
         Thread myThread = new Thread(r,"MyThread");
         myThread.start();
+        System.out.println(myThread.getState());
+        System.out.println(myThread.getState());
+        System.out.println(myThread.getState());
         System.out.println("Main thread finished...");
     }
 }
