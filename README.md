@@ -1,4 +1,8 @@
 "# skillfactory_multithread_task_13.7.1"
+Многопоточность. Основы.
+Задача реализовать запись массивов чисел в файлы в разных потоках.
+Использовать класс Thread и интерфейс Runnable.
+
 Quick setup — if you’ve done this kind of thing before
 or
 https://github.com/sitek79/skillfactory_multithread_task_13.7.1.git
